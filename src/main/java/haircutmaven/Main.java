@@ -36,11 +36,13 @@ public class Main {
 		
 		
 		// 디자이너 선택해주세요 멘트 출력 - > 호철님
-		
+		System.out.println("디자이너를 선택하세요~~~ (1~4)");
 		// 디자이너 리스트 db에서 가져온 후 콘솔에 출력
-		
+		DesignerDAO designer = new DesignerDAO();
+		designer.findAll();
+		int selectedDesigner = Integer.parseInt(scanner.nextLine());
 		// 디자이너 선택후 선택한 디자이너는 payment tabled의 selected_designer에 넣기
-		
+		System.out.println("디자이너 선택 완료!!!");
 		// 헤어스타일 선택해주세요 멘트 출력 
 		System.out.println("헤어스타일 선택해주세요.");
 		
@@ -61,7 +63,9 @@ public class Main {
 		BigDecimal rating =new BigDecimal(scanner.nextLine());
 		customer.setSatisfaction(rating);
 		
-		System.out.println(customer.getSatisfaction());
+		DesignerDAO.updateDesignerList(selectedDesigner, rating);
+		//designer.findAll();
+		//System.out.println(customer.getSatisfaction());
 		// 입력 받은 평점 customer table rating에 update
 		
 		customerDAO.updateSatisfaction(customer);

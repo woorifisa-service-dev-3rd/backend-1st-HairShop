@@ -34,7 +34,7 @@ public class DesignerDAO {
 				int totalCount = resultSet.getInt("total_Count");        // 총 작업 수
 				BigDecimal rating = resultSet.getBigDecimal("rating");
 				designers.add(new Designer(designerId,designerName,designerRank,totalCount,rating));
-				System.out.println(designerId+". "+designerName +" " +designerRank+ "평점 : "+ rating);
+				System.out.println(designerId+". "+designerName +" " +designerRank+ " 평점 : "+ rating);
 			}
 			
 			
@@ -55,7 +55,7 @@ public class DesignerDAO {
 //	}
 	
 	//디자이너 업데이트 메소드 - 디자이너id와 고객의 평점을 받아서 처리한다.
-	public static void updateDesignerList(int designer_id, int rating){
+	public static void updateDesignerList(int designer_id, BigDecimal rating){
 		
 		 final String updateQuery = "UPDATE designer SET total_count = total_count + 1, " +
                  "rating = ((rating * (total_count - 1)) + ?) / total_count " +
@@ -64,7 +64,7 @@ public class DesignerDAO {
 		try {
 			 connection = DBConnection.getConnection();
 		        PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-		        preparedStatement.setInt(1, rating);
+		        preparedStatement.setBigDecimal(1, rating);
 		        preparedStatement.setInt(2, designer_id);
 		        preparedStatement.executeUpdate();
 		} catch (SQLException | IOException e) {
