@@ -14,7 +14,6 @@ import java.util.List;
 
 import haircutmaven.model.Payment;
 import haircutmaven.util.DBConnection;
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

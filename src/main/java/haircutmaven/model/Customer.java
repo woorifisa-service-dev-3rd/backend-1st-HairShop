@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import lombok.Builder;
 
-@Builder
 public class Customer {
 
 	private int customerId; // 고객 ID
@@ -57,7 +56,7 @@ public class Customer {
 	
 
     
-    
+
     
 
 }
