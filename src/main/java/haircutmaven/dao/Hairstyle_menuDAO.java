@@ -57,9 +57,11 @@ public class Hairstyle_menuDAO {
 		}
 		return menu;
 	}
-	public static void main(String[] args) {
+	public static void printStyleMenu() {
 		Hairstyle_menuDAO dao = new Hairstyle_menuDAO();
         Hairstyle_menu menu=dao.getHairstyleMenu();
-        System.out.println("스타일 번호: "+menu.getStyle_ids(1)+ " 헤어스타일: " + menu.getHairstyle(1) + ", 비용: " + menu.getCost(1));
+        for(int i=0;i<3;i++) {
+        	System.out.println((i+1)+". "+menu.getHairstyle(i)+" ("+menu.getCost(i)+"원)");
+        }
 	}
 }

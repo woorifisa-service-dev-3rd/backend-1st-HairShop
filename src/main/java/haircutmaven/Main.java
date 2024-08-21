@@ -10,6 +10,7 @@ import java.util.Scanner;
 import haircutmaven.dao.CustomerDAO;
 import haircutmaven.model.Customer;
 import haircutmaven.dao.DesignerDAO;
+import haircutmaven.dao.Hairstyle_menuDAO;
 import haircutmaven.util.DBConnection;
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,17 +45,33 @@ public class Main {
 		// 디자이너 선택후 선택한 디자이너는 payment tabled의 selected_designer에 넣기
 		System.out.println("디자이너 선택 완료!!!");
 		// 헤어스타일 선택해주세요 멘트 출력 
-		System.out.println("헤어스타일 선택해주세요.");
+		System.out.println("원하는 시술을 선택해주세요.");
 		
 		// 헤어스타일 리스트 db에서 가져온 후 콘솔에 출력 -> 규한님이 해야함. 
-		
+		Hairstyle_menuDAO.printStyleMenu();
 		// 헤어스타일을 선택해한 후 선택한 스타일은 customer table의 selected hairstyle에 넣기
-		String hairStyle = "파마"; // test 
+		String hairStyle;
+		do {
+            hairStyle = scanner.nextLine();
+            if (!hairStyle.equals("컷") && !hairStyle.equals("파마") && !hairStyle.equals("매직")) {
+                System.out.println("시술명으로 입력해주세요.");
+            }
+        } while (!hairStyle.equals("컷") && !hairStyle.equals("파마") && !hairStyle.equals("매직"));
 		customer.setSelectedHairstyle(hairStyle); 
 		customerDAO.updateHairstyle(customer); // 선택한 hairsytle update
-	
+		System.out.println(hairStyle+"을 선택하셨습니다.");
 		// 시술 진행
-		
+		try{
+			Thread.sleep(1000);
+			System.out.println("시술중");
+			System.out.println(".");
+			System.out.println(".");
+			System.out.println(".");
+			Thread.sleep(1000);
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("빰");
+		}
 		// 시술 끝내고 
 		System.out.println("손님, 머리 다 됐습니다~ 뒷모습 거울로 보여드릴게요~");
 		
