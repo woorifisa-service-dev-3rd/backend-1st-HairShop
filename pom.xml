@@ -27,6 +27,12 @@
 		<artifactId>logback-classic</artifactId>
 		<version>1.2.3</version>
 	</dependency>
+	
+	<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.32</version> 
+	</dependency>
 
 	
 	<!-- jcl-over-slf4j : commons-logging를 제거해서 생긴 오류를 제거 -->

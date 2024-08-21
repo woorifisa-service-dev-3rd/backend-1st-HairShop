@@ -20,3 +20,6 @@ mvnw.cmd
 
 # Ignore Mac OS specific files
 .DS_Store
+
+# Ignore specific Java file
+src/main/java/haircutmaven/DBConnection.java
