@@ -1,35 +1,21 @@
 package haircutmaven;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.text.ParseException;
-
 import haircutmaven.dao.PaymentDAO;
-=======
 import java.util.Scanner;
-
 import haircutmaven.dao.CustomerDAO;
 import haircutmaven.model.Customer;
->>>>>>> main
+import haircutmaven.dao.DesignerDAO;
 import haircutmaven.util.DBConnection;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Main {
-<<<<<<< HEAD
 	
-	public static void main(String[] args) throws IOException, SQLException, ParseException {
-		log.info(DBConnection.getConnection().toString());
-		PaymentDAO.InsertPayment(null, 10000, 1, 1, 2);
-		try {
-			log.info(PaymentDAO.GetPaymentListByDate("2024-08-21").toString());
-		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		log.info(PaymentDAO.GetOnePaymentByCustomer(1).toString());
-=======
+
 	public static void main(String[] args) throws IOException, SQLException {
 		Scanner scanner = new Scanner(System.in);
 		log.info(DBConnection.getConnection().toString());
@@ -55,7 +41,7 @@ public class Main {
 		// 디자이너 선택후 선택한 디자이너는 payment tabled의 selected_designer에 넣기
 		
 		// 헤어스타일 선택해주세요 멘트 출력 
-		System.out.println("헤어스타일 선택해주세요.")
+		System.out.println("헤어스타일 선택해주세요.");
 		
 		// 헤어스타일 리스트 db에서 가져온 후 콘솔에 출력 -> 규한님이 해야함. 
 		
@@ -84,9 +70,7 @@ public class Main {
 		
 		// 미용실 끝나면 오늘의 하루 매출 보여주고 디자이너 하루 결과 보여주기
 		
-	
-		
->>>>>>> main
+
 	}
 }
 
