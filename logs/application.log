@@ -1,0 +1,4 @@
+2024-08-21 17:43:07 [main] INFO  haircutmaven.Main - com.mysql.cj.jdbc.ConnectionImpl@4c1f22f3
+2024-08-21 17:43:18 [main] INFO  haircutmaven.service.HairCut - 7
+2024-08-21 17:43:23 [main] INFO  haircutmaven.Main - customerid27
+2024-08-21 17:43:26 [main] INFO  haircutmaven.dao.PaymentDAO - insertok

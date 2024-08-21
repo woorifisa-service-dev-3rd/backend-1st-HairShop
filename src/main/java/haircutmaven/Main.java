@@ -13,6 +13,7 @@ import java.util.Scanner;
 import haircutmaven.dao.CustomerDAO;
 import haircutmaven.model.Customer;
 import haircutmaven.model.Payment;
+import haircutmaven.service.HairCut;
 import haircutmaven.dao.DesignerDAO;
 import haircutmaven.dao.Hairstyle_menuDAO;
 import haircutmaven.util.DBConnection;
@@ -52,8 +53,6 @@ public class Main {
 		System.out.println("헤어스타일 선택해주세요.");
 		System.out.println("원하는 시술을 선택해주세요.");
 
-		// 헤어스타일 리스트 db에서 가져온 후 콘솔에 출력 -> 규한님이 해야함. 
-
 		Hairstyle_menuDAO.printStyleMenu();
 		// 헤어스타일을 선택해한 후 선택한 스타일은 customer table의 selected hairstyle에 넣기
 		String hairStyle;
@@ -81,8 +80,18 @@ public class Main {
 			System.out.println("빰");
 		}
 		// 시술 끝내고 
-		System.out.println("손님, 머리 다 됐습니다~ 뒷모습 거울로 보여드릴게요~");
 		
+		System.out.println("손님, 머리 다 됐습니다~ 뒷모습 거울로 보여드릴게요~");
+		//랜덤 머리자르기
+		if(HairCut.RandomCut(hairStyle).equals("fail"))
+			{
+					System.out.println("아이고 머리가 망했습니다!");
+					hairStyle="폭탄 머리";
+			}
+	
+		System.out.println("두둥 ~ "+ hairStyle);
+		
+		HairCut.printHairstyle(hairLength,hairStyle);
 		// 평점 받기 멘트 출력
 		System.out.println("시술이 끝났습니다. 평점 입력해주세요. 1~5");
 		BigDecimal rating =new BigDecimal(scanner.nextLine());
@@ -101,15 +110,15 @@ public class Main {
 		System.out.println("이번 시술은 만족스러우셨나요? 0.네, 만족스러워요 1.아니요");
 		Integer satisfy = Integer.parseInt(scanner.nextLine());
 		int payamount = 0;
-		if (satisfy== 0)
+		if (satisfy == 1 && hairStyle.equals("폭탄 머리"))
 		{
-			//선택하신 비용
-			payamount = 100000; //얼만지 받아야됨.
-			// 만족하면 영수증 보여주고 끝
-		}else {
 			System.out.println("죄송합니다.");
 			payamount = 0;
 			// 불만족하면 죄송합니다. 사과 후 가격 0원으로 계산하고 영수증 보여주고 끝 
+		}else {
+			//선택하신 비용
+			payamount = 100000; //얼만지 받아야됨.
+			// 만족하면 영수증 보여주고 끝
 		}
 		
 		//paymentdb에 insert.
@@ -137,5 +146,8 @@ public class Main {
 
 
 	}
+	
+	
+	
 }
 
