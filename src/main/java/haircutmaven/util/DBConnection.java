@@ -14,14 +14,11 @@ public class DBConnection {
 		Properties properties = new Properties();
 		FileInputStream fs= new FileInputStream("src/main/java/haircutmaven/DBsetting");
 		properties.load(fs);
-		
 		final String db_url = properties.getProperty("db_url");
 		final String username = properties.getProperty("username");
 		final String password = properties.getProperty("password");
 		final String database = properties.getProperty("database");
-		
 		return DriverManager.getConnection(db_url+database, username, password);
-		
 		
 	}
 }
