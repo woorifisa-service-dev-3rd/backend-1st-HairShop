@@ -51,6 +51,16 @@ public class Customer {
 		this.selectedHairstyle = selectedHairstyle;
 	}
 
+	public BigDecimal getSatisfaction() {
+		return satisfaction;
+	}
+
+	public void setSatisfaction(BigDecimal satisfaction) {
+		this.satisfaction = satisfaction;
+	}
+	
+	
+
 	
 
 	

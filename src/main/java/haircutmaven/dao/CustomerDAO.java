@@ -52,5 +52,16 @@ public class CustomerDAO {
 	}
 	
 	
+	// customer가 선택한 평점을 customer table의 satisfaction에 넣기
+	public void updateSatisfaction(Customer customer) throws IOException, SQLException {
+		connection = DBConnection.getConnection();
+		final String updateQuery = String.format(
+                "UPDATE CUSTOMER SET satisfaction = '%s' WHERE customer_id = %d",
+                customer.getSatisfaction(),
+                customer.getCustomerId()
+            );
+	statement.executeUpdate(updateQuery);
+	}
+	
 	
 }
