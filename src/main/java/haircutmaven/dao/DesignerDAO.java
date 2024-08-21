@@ -71,4 +71,37 @@ public class DesignerDAO {
 			e.printStackTrace();
 		}
 	}
-}
+	
+	public static String getDesignerNameById(int designer_id) {
+		final String selectQuery = "SELECT designer_name FROM designer WHERE designer_id = ?";
+		String designerName = null;
+
+		try {
+			connection = DBConnection.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+			preparedStatement.setInt(1, designer_id);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				designerName = resultSet.getString("designer_name");
+			}
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) resultSet.close();
+				if (statement != null) statement.close();
+				if (connection != null) connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return designerName;
+	}
+		
+	}
+
+		
+	
+
+
