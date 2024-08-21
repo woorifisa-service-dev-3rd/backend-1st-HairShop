@@ -1,6 +1,7 @@
 package haircutmaven;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -36,7 +37,7 @@ public class Main {
 		// 디자이너 선택후 선택한 디자이너는 payment tabled의 selected_designer에 넣기
 		
 		// 헤어스타일 선택해주세요 멘트 출력 
-		System.out.println("헤어스타일 선택해주세요.")
+		System.out.println("헤어스타일 선택해주세요.");
 		
 		// 헤어스타일 리스트 db에서 가져온 후 콘솔에 출력 -> 규한님이 해야함. 
 		
@@ -51,10 +52,16 @@ public class Main {
 		System.out.println("손님, 머리 다 됐습니다~ 뒷모습 거울로 보여드릴게요~");
 		
 		// 평점 받기 멘트 출력
+		System.out.println("시술이 끝났습니다. 평점 입력해주세요.");
+		BigDecimal rating =new BigDecimal(scanner.nextLine());
+		customer.setSatisfaction(rating);
 		
+		System.out.println(customer.getSatisfaction());
 		// 입력 받은 평점 customer table rating에 update
 		
+		customerDAO.updateSatisfaction(customer);
 		
+
 
 		
 		// 만족하면 영수증 보여주고 끝
