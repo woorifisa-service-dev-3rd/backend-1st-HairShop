@@ -1,0 +1,25 @@
+# Ignore Eclipse settings directory
+.settings/
+
+# Ignore Maven target directory
+target/
+
+# Ignore Maven target classes directory
+target/classes/
+
+# Ignore Eclipse project files
+.classpath
+.project
+
+# Ignore Maven wrapper files
+mvnw
+mvnw.cmd
+
+# Ignore log files
+*.log
+
+# Ignore Mac OS specific files
+.DS_Store
+
+# Ignore specific Java file
+src/main/java/haircutmaven/DBsetting
