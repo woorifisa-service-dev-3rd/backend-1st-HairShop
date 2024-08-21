@@ -22,4 +22,4 @@ mvnw.cmd
 .DS_Store
 
 # Ignore specific Java file
-src/main/java/haircutmaven/DBConnection.java
+src/main/java/haircutmaven/DBsetting
