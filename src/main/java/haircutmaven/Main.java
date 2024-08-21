@@ -2,6 +2,7 @@ package haircutmaven;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.ParseException;
 import haircutmaven.dao.PaymentDAO;
@@ -56,10 +57,16 @@ public class Main {
 		System.out.println("손님, 머리 다 됐습니다~ 뒷모습 거울로 보여드릴게요~");
 		
 		// 평점 받기 멘트 출력
+		System.out.println("시술이 끝났습니다. 평점 입력해주세요.");
+		BigDecimal rating =new BigDecimal(scanner.nextLine());
+		customer.setSatisfaction(rating);
 		
+		System.out.println(customer.getSatisfaction());
 		// 입력 받은 평점 customer table rating에 update
 		
+		customerDAO.updateSatisfaction(customer);
 		
+
 
 		
 		// 만족하면 영수증 보여주고 끝
