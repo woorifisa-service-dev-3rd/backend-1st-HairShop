@@ -26,16 +26,24 @@ public class DesignerDAO {
 			connection = DBConnection.getConnection();
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectQuery);
-			
-			while(resultSet.next()) {
-				int designerId = resultSet.getInt("designer_Id");        // 디자이너 ID
-				String designerName = resultSet.getString("designer_Name");   // 디자이너 이름
-				String designerRank = resultSet.getString("designer_Rank");   // 디자이너 등급
-				int totalCount = resultSet.getInt("total_Count");        // 총 작업 수
-				BigDecimal rating = resultSet.getBigDecimal("rating");
-				designers.add(new Designer(designerId,designerName,designerRank,totalCount,rating));
-				System.out.println(designerId+". "+designerName +" " +designerRank+ "평점 : "+ rating);
+			System.out.println("==================================================================");
+			System.out.printf("%-10s %-20s %-15s %-10s %-10s%n", "번호", "이름", "직급", "시술 횟수", " 평점");
+
+			// 결과 출력
+			while (resultSet.next()) {
+			    int designerId = resultSet.getInt("designer_id");            // 디자이너 ID
+			    String designerName = resultSet.getString("designer_name");  // 디자이너 이름
+			    String designerRank = resultSet.getString("designer_rank");  // 디자이너 등급
+			    int totalCount = resultSet.getInt("total_count");            // 총 작업 수
+			    BigDecimal rating = resultSet.getBigDecimal("rating");       // 평점
+			    
+			    designers.add(new Designer(designerId, designerName, designerRank, totalCount, rating));
+
+			    // 각 디자이너 정보를 표 형식으로 출력
+			    System.out.printf("%-10d %-20s %-15s %-10d %-10.2f%n", designerId, designerName, designerRank, totalCount, rating);
 			}
+			System.out.println("==================================================================");
+			
 			
 			
 		} catch (IOException e) {
@@ -55,21 +63,28 @@ public class DesignerDAO {
 //	}
 	
 	//디자이너 업데이트 메소드 - 디자이너id와 고객의 평점을 받아서 처리한다.
-	public static void updateDesignerList(int designer_id, int rating){
-		
-		 final String updateQuery = "UPDATE designer SET total_count = total_count + 1, " +
-                 "rating = ((rating * (total_count - 1)) + ?) / total_count " +
-                 "WHERE designer_id = ?";
-		
-		try {
-			 connection = DBConnection.getConnection();
-		        PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-		        preparedStatement.setInt(1, rating);
-		        preparedStatement.setInt(2, designer_id);
-		        preparedStatement.executeUpdate();
-		} catch (SQLException | IOException e) {
-			e.printStackTrace();
-		}
+	public static void updateDesignerList(int designer_id, int rating) {
+	    // 업데이트 쿼리: total_count를 증가시키고, 필요한 경우 designer_rank를 변경
+	    final String updateQuery = "UPDATE designer SET total_count = total_count + 1, " +
+	                               "rating = ((rating * (total_count - 1)) + ?) / total_count, " +
+	                               "designer_rank = CASE WHEN total_count = 1 THEN '일반 디자이너' ELSE designer_rank END " +
+	                               "WHERE designer_id = ?";
+
+	    try {
+	        connection = DBConnection.getConnection();
+	        PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+	        preparedStatement.setInt(1, rating);
+	        preparedStatement.setInt(2, designer_id);
+	        preparedStatement.executeUpdate();
+	    } catch (SQLException | IOException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (connection != null) connection.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
 	}
 	
 	public static String getDesignerNameById(int designer_id) {

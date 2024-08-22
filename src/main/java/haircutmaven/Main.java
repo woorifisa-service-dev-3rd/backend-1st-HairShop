@@ -17,8 +17,8 @@ public class Main {
 		Connection conn = DBConnection.getConnection();
 		DesignerDAO designer = new DesignerDAO();
 		designer.findAll();
-		String name = designer.getDesignerNameById(2);
-		System.out.println(name);
+		designer.updateDesignerList(1, 4);
+		designer.findAll();
 	}
 }
  
