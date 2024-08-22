@@ -19,29 +19,85 @@ public class HairCut {
 	}
 	
 	public static void printHairstyle(int hairLength,String hairStyle) {
-		if(hairLength==1 && hairStyle.equals("컷")) {
-			System.out.println("|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||");
+		
+		if(hairStyle.equals("폭탄 머리")) {
+			System.out.println();
+   System.out.println("    ***** \r\n"
+					+ "    @z@@@s\r\n"
+					+ "\\ ( @  @ ) @\r\n"
+					+ " @ (    --   )|\r\n"
+					+ " v (    ~   ) 0\r\n"s
+					+ "");
+			
+		}
+	else if(hairLength==1 && hairStyle.equals("컷")) {
+			System.out.println();
+   System.out.println("          ==\r\n"
+					+ "       ========\r\n"
+					+ "  =============\r\n"
+					+ "  ==== ( @  @ ) ====\r\n"
+					+ "  ==== (    --   ) ====\r\n"
+					+ "  ==== (    ~   ) ====\r\n"
+					+ "  ==== -------- ====\r\n"
+					+ "  ====           ====\r\n"
+					+ "  ====           ====\r\n"
+					+ "  ====           ====\r\n"
+					+ "  ====           ====\r\n"
+					+ "  ====           ====");
 		}else if(hairLength==1 && hairStyle.equals("파마")) {
-			System.out.println("((((((((((((((((((((\r\n"
-					+ "))))))))))))))))))))\r\n"
-					+ "((((((((((((((((((((\r\n"
-					+ "))))))))))))))))))))\r\n"
-					+ "(((((((((((((((((((");
+			System.out.println();
+   System.out.println("         ~~~\r\n"
+					+ "     ~~~~~~~~~~~\r\n"
+					+ " ~~~~~~~~ ~~~~~~~\r\n"
+					+ "  ~~~~( @  @ )~~~~\r\n"
+					+ "  ~~~~(    --   )~~~~\r\n"
+					+ "  ~~~~(    ~   )~~~~\r\n"
+					+ "  ~~~~ -------- ~~~~\r\n"
+					+ "  ~~~~           ~~~~\r\n"
+					+ "  ~~~~           ~~~~\r\n"
+					+ "  ~~~~           ~~~~\r\n"
+					+ "  ~~~~           ~~~~");
 		}else if(hairLength==1 && hairStyle.equals("매직")) {
-			System.out.println("|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||");
+			System.out.println();
+   System.out.println("        llllllll\r\n"
+					+ "      lllllllllllllll\r\n"
+					+ "  llll ( @  @ ) llll\r\n"
+					+ "  llll (    --   ) llll\r\n"
+					+ "  llll (    ~   ) llll\r\n"
+					+ "  llll -------- llll\r\n"
+					+ "  lllllll         llll\r\n"
+					+ "  llllll           lllll\r\n"
+					+ "  lll               llll\r\n"
+					+ "  lll                lllll");
 		}else if(hairLength==2 && hairStyle.equals("컷")) {
-			System.out.println("|||||||||||||||||||||||");
+			System.out.println();
+   System.out.println("         ===\r\n"
+					+ "       ========\r\n"
+					+ "  =============\r\n"
+					+ "  ==== ( @  @ ) ====\r\n"
+					+ "  ==== (    --   ) ====\r\n"
+					+ "  ==== (    ~   ) ====\r\n"
+					+ "  ==== -------- ====\r\n"
+					+ "  ====           ====");
 		}else if(hairLength==2 && hairStyle.equals("파마")) {
-			System.out.println("))))))))))))))))))))\r\n"
-					+ "((((((((((((((((((((");
+			System.out.println();
+   System.out.println("         ~~~\r\n"
+					+ "     ~~~~~~~~~~~\r\n"
+					+ " ~~~~~~~~ ~~~~~~~\r\n"
+					+ "  ~~~~( @  @ )~~~~\r\n"
+					+ "  ~~~~(    --   )~~~~\r\n"
+					+ "  ~~~~(    ~   )~~~~\r\n"
+					+ "  ~~~~ -------- ~~~~\r\n"
+					+ "  ~~~~           ~~~~");
 		}else if(hairLength==2 && hairStyle.equals("매직")) {
-			System.out.println("|||||||||||||||||||||||\r\n"
-					+ "|||||||||||||||||||||||");
+			System.out.println();
+   System.out.println("        lllllllll\r\n"
+					+ "      lllllllllllllll\r\n"
+					+ "  llll ( @  @ ) llll\r\n"
+					+ "  llll (    --   ) llll\r\n"
+					+ "  llll (    ~   ) llll\r\n"
+					+ "  llll -------- llll\r\n"
+					+ "  lll            lll");
 		}
 	}
 }
